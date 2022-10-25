@@ -12,44 +12,6 @@
 
 
 import numpy as np
-import pandas as pd
-
-DATA = pd.DataFrame(
-    np.array(
-        [
-            ["new", "good", "high", "yes"],
-            ["new", "bad", "low", "no"],
-            ["old", "medium", "high", "no"],
-            ["old", "bad", "low", "no"],
-            ["old", "good", "low", "yes"],
-            ["new", "good", "low", "yes"],
-            ["new", "bad", "high", "no"],
-            ["old", "good", "low", "yes"],
-            ["new", "medium", "high", "yes"],
-            ["old", "bad", "low", "yes"],
-            ["new", "medium", "high", "no"],
-            ["new", "good", "low", "yes"],
-            ["old", "good", "low", "yes"],
-            ["new", "medium", "high", "no"],
-            ["old", "bad", "low", "yes"],
-        ]
-    )
-)
-
-# DATA = pd.DataFrame(
-#     np.array(
-#         [
-#             ["new", "yes"],
-#             ["new", "yes"],
-#             ["new", "yes"],
-#             ["new", "no"],
-#             ["new", "no"],
-#             ["new", "no"],
-#         ]
-#     )
-# )
-
-LABEL = ["fashion", "situation", "price"]
 
 
 class DecisionTree:
@@ -69,7 +31,6 @@ class DecisionTree:
             == 1
         ):
             # all judge is yes/no
-            # print(process_data.iloc[0, [process_data.shape[1] - 1]].values[0])
             return process_data.iloc[0, [process_data.shape[1] - 1]].values[0]
 
         if processed_num == self.data.shape[1]:
@@ -108,7 +69,7 @@ class DecisionTree:
         ].columns.tolist()[0]
         return tree_node
 
-    def get_tree_entropy(self, data: pd.DataFrame):
+    def get_tree_entropy(self, data):
         """calculate entropy
 
         Args:
@@ -138,7 +99,7 @@ class DecisionTree:
             tree_entropy += entropy
         return tree_entropy
 
-    def get_most_label(self, data: pd.DataFrame):
+    def get_most_label(self, data):
         """if the top of the tree, return the max times
 
         Args:
@@ -152,9 +113,3 @@ class DecisionTree:
             return data_group.index[0][0]
         else:
             return data_group.index[1][0]
-
-
-if __name__ == "__main__":
-    model = DecisionTree(DATA, LABEL)
-    model.tree = model.tree_handler(model.data, 0)
-    print(model.tree)
