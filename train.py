@@ -25,7 +25,7 @@ def train():
 def main():
 
     dec_tree = train()
-    draw_tree(dec_tree)
+    draw_tree(dec_tree, LABEL, "./img/demo.md")
 
 
 if __name__ == "__main__":
