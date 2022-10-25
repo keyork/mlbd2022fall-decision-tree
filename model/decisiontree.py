@@ -15,12 +15,12 @@ import numpy as np
 
 
 class DecisionTree:
-    def __init__(self, data, label):
+    def __init__(self, data, label, show_entropy):
 
         self.data = data
         self.label = label
+        self.show_entropy = show_entropy
         self.tree = {}
-        self.feats = []
 
     def tree_handler(self, data, processed_num):
         processed_num += 1
@@ -64,8 +64,10 @@ class DecisionTree:
             tree_node: id of min entropy
         """
         entropy_list = np.array([self.get_tree_entropy(data) for data in data_list])
+        if self.show_entropy:
+            print(entropy_list)
         tree_node = data_list[
-            int(np.argwhere(entropy_list == entropy_list.min()))
+            int(np.argwhere(entropy_list == entropy_list.min())[0])
         ].columns.tolist()[0]
         return tree_node
 
