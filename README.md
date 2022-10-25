@@ -8,12 +8,14 @@ https://github.com/keyork/mlbd2022fall-decision-tree
 
 - A general discrete value decision tree solver
   - data -> tree(dict)
+
 - A plotter from dict to decision tree images
   - tree(dict) -> image
 
+
 ## Task
 
-See [task.md](./task.md).
+See [task.md](https://github.com/keyork/mlbd2022fall-decision-tree/blob/main/task.md).
 
 ## Usage
 
@@ -69,4 +71,13 @@ Divide the content in the dict into three categories: label(e.g., situation, fas
 
 Save as markdown file and render it.
 
+**Usage**
+
+```python
+from utils.drawtoolbox import draw_tree
+draw_tree(tree: dict, label_list: list, target_path: str)
+```
+
 ## Result
+
+<img src="img/result_report.png" alt="result_report" style="zoom:15%;" /><img src="img/tree_report.png" alt="tree_report" style="zoom:25%;" />

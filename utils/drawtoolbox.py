@@ -14,7 +14,13 @@ from utils.toolbox import LOGGER
 
 
 def draw_tree(data: dict, label: list, target_path: str):
+    """draw the tree
 
+    Args:
+        data (dict): tree dict
+        label (list): label list
+        target_path (str): save path
+    """
     graph_info = [[], [], [], []]
     walk_dict(data, graph_info, label, "")
     with open(target_path, "w+") as f:
@@ -34,7 +40,14 @@ def draw_tree(data: dict, label: list, target_path: str):
 
 
 def walk_dict(data: dict, graph_info: list, label: list, root: str):
+    """walk the dict to get all connect
 
+    Args:
+        data (dict): tree
+        graph_info (list): save data
+        label (list): label list
+        root (str): root node
+    """
     for key in data.keys():
 
         sub_data = data[key]
