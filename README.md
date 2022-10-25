@@ -7,11 +7,11 @@ https://github.com/keyork/mlbd2022fall-decision-tree
 ## 🎉 Main Contributions
 
 - A general discrete value decision tree solver
+
   - data -> tree(dict)
 
 - A plotter from dict to decision tree images
   - tree(dict) -> image
-
 
 ## Task
 
@@ -30,9 +30,11 @@ python train.py --args ARGS ...
 ### Decision Tree
 
 Using average entropy as the basis for selecting nodes.
+
 $$
-average\ Entropy = \min\limits_{j, t_j}\left\{\sum_{k}\frac{N_k}{N}Entropy(k|j, t_j) \right\}
+average\ Entropy = \min\limits_{j, t_j} \left\{ \sum_{k}\frac{N_k}{N}Entropy(k|j, t_j) \right\}
 $$
+
 Calculations are performed recursively, if the labels in data are the same or data can't be split anymore, stop recursive algorithm.
 
 ```pseudocode
