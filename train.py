@@ -27,6 +27,7 @@ def train(config):
     print("           Entropy  Log           ")
     model.tree = model.tree_handler(model.data, 0)
     print("----------------------------------")
+    print(model.tree)
     return model.tree
 
 
